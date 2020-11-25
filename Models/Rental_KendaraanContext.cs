@@ -24,7 +24,14 @@ namespace RentalKendaraan_NIM.Models
         public virtual DbSet<Peminjaman> Peminjaman { get; set; }
         public virtual DbSet<Pengembalian> Pengembalian { get; set; }
 
-      
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                optionsBuilder.UseSqlServer("Server=DESKTOP-EJH2D6F\\MSSQLSERVER01;Database=Rental_Kendaraan;Trusted_Connection=True");
+            }
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -20,7 +20,6 @@ namespace RentalKendaraan_NIM.Models
         public string NoStnk { get; set; }
         public int? IdJenisKendaraan { get; set; }
         [Required(ErrorMessage = "Ketersedian wajib diisi")]
-        [RegularExpression("^[0-9]*$", ErrorMessage = "Hanya boleh diisi oleh angka")]
         public string Ketersediaan { get; set; }
 
         public JenisKendaraan IdKendaraanNavigation { get; set; }
